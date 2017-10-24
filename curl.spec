@@ -4,7 +4,7 @@
 Summary: A utility for getting files from remote servers (FTP, HTTP, and others)
 Name: %{?scl_prefix}curl
 Version: 7.47.1
-Release: 1.1%{?dist}
+Release: 4%{?dist}
 License: MIT
 Group: Applications/Internet
 Source: http://curl.haxx.se/download/%{pkg_name}-%{version}.tar.lzma
@@ -238,6 +238,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/libcurl.m4
 
 %changelog
+* Wed May 24 2017 Luboš Uhliarik <luhliari@redhat.com> - 7.47.1-4
+- rebuild
+
 * Tue Feb 09 2016 Kamil Dudka <kdudka@redhat.com> 7.47.1-1.1
 - use the httpd24 tag for libcurl.so
 - use the CA bundle from system (httpd24 does not symlink it)
