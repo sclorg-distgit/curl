@@ -4,7 +4,7 @@
 Summary: A utility for getting files from remote servers (FTP, HTTP, and others)
 Name: %{?scl_prefix}curl
 Version: 7.47.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: MIT
 Group: Applications/Internet
 Source: http://curl.haxx.se/download/%{pkg_name}-%{version}.tar.lzma
@@ -203,6 +203,8 @@ mv $RPM_BUILD_ROOT%{_includedir}/curl/curlbuild.h \
    $RPM_BUILD_ROOT%{_includedir}/curl/%{_curlbuild_h}
 
 install -m 644 %{SOURCE2} $RPM_BUILD_ROOT%{_includedir}/curl/curlbuild.h
+
+mv %{buildroot}%{_libdir}/pkgconfig/libcurl.pc %{buildroot}%{_libdir}/pkgconfig/%{scl_prefix}libcurl.pc
 %{?scl:EOF}
 
 %clean
@@ -238,6 +240,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/libcurl.m4
 
 %changelog
+* Thu Sep 13 2018 Luboš Uhliarik <luhliari@redhat.com> - 7.47.1-5
+- Resolves: #1540167 - provides without httpd24 pre/in-fix
+
 * Wed May 24 2017 Luboš Uhliarik <luhliari@redhat.com> - 7.47.1-4
 - rebuild
 
